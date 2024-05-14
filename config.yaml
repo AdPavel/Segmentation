@@ -1,0 +1,5 @@
+path: E:\Segmentation\database\train_set
+train: E:\Segmentation\database\train_set\images\train
+val: E:\Segmentation\database\train_set\images\val
+
+names: ['foci']
