@@ -10,7 +10,7 @@ import nibabel as nib  # nibabel to handle nifti files
 import numpy as np
 import pydicom  # pydicom to handle dicom files
 import glob
-import path_routing
+from config.settings import path_routing
 
 
 def create_nifti_from_contrast_volumes(root_path, postpr_path):
@@ -213,8 +213,11 @@ def mask_to_polygons(path_to_mask):
 
 
 def raw_data_processing():
-    survey_list, raw_data_list = create_nifti_from_contrast_volumes(root_path=path_routing.MARKED_MRI_PATH,
-                                                                    postpr_path=path_routing.PROCESSED_DATA_PATH)
+    """
+    :return: Creates Nifti and Yolo train set from survey folders.
+    """
+    survey_list, raw_data_list = create_nifti_from_contrast_volumes(root_path=path_routing.marked_mri_path,
+                                                                    postpr_path=path_routing.processed_data_path)
     for survey_path, raw_data_path in zip(survey_list, raw_data_list):
         epi_img, epi_img_data = get_nifti_meta(nifti_path=survey_path)
         new_points_lps = create_demyelination_areas_markups(epi_img, epi_img_data, markup_path=raw_data_path)

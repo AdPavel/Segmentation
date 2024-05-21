@@ -3,17 +3,20 @@ import os
 import shutil
 
 import glob
-import path_routing
+from config.settings import path_routing
 
 # path_to_all = PROJECT_DIR
-path_to_database = path_routing.PROCESSED_DATA_PATH
-path_to_all = path_routing.TRAIN_SET_PATH
+path_to_database = path_routing.processed_data_path
+path_to_all = path_routing.train_set_path
 
-os.makedirs(path_routing.TRAIN_SET_PATH,exist_ok = True)
-os.makedirs(os.path.join(path_routing.TRAIN_SET_PATH, 'images'),exist_ok = True)
-os.makedirs(os.path.join(path_routing.TRAIN_SET_PATH,'labels'),exist_ok = True)
+os.makedirs(path_routing.train_set_path, exist_ok = True)
+os.makedirs(os.path.join(path_routing.train_set_path, 'images'), exist_ok = True)
+os.makedirs(os.path.join(path_routing.train_set_path, 'labels'), exist_ok = True)
 
 def create_train_set():
+    """
+    :return: Creates set for train Yolo model
+    """
     for root, dirs, files in os.walk(path_to_database):
         if 'images' in root or 'labels' in root:
             for file_ in files:
@@ -25,8 +28,8 @@ def create_train_set():
 
     #Создает нужные папки для ращделения
     devide_ = ['train','val','test']
-    path_to_all_image = os.path.join(path_routing.TRAIN_SET_PATH,'images')
-    path_to_all_labels = os.path.join(path_routing.TRAIN_SET_PATH,'labels')
+    path_to_all_image = os.path.join(path_routing.train_set_path, 'images')
+    path_to_all_labels = os.path.join(path_routing.train_set_path, 'labels')
     path_to_main = [path_to_all_image,path_to_all_labels]
     [os.makedirs(os.path.join(path_to_,devide_i),exist_ok=True) for path_to_ in path_to_main for devide_i in devide_]
 
