@@ -8,3 +8,4 @@ PROCESSED_DATA_PATH = PROJECT_DIR + r"\database\processed_data"
 print(PROCESSED_DATA_PATH)
 TRAIN_SET_PATH = PROJECT_DIR + r"\database\train_set"
 print(TRAIN_SET_PATH)
+DATABASE_PATH = PROJECT_DIR + r'\database'
