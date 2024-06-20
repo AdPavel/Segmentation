@@ -279,11 +279,12 @@ def all_research(path_to_all_research):
                 get_volume(path_to_one_research, path_routing.path_to_model, path_to_final_folder)
 
                 # Вызов функции для создания CSV
-                create_csv(path_to_final_folder, research_name, to_wmparc_folder, error_=True)
+                create_csv(path_to_final_folder, research_name, path_to_final_folder, to_wmparc_folder, error_=True)
 
         else:
             path_to_final_folder = folder_creator(folder_)
+            to_wmparc_folder = os.path.join(path_to_final_folder, 'WMPARC')
             get_volume(path_to_one_research, path_routing.path_to_model, path_to_final_folder)
-            create_csv(path_to_final_folder, research_name, to_wmparc_folder, error_=True)
+            create_csv(path_to_final_folder, research_name, path_to_final_folder, to_wmparc_folder, error_=True)
 
 all_research(path_routing.marked_mri_path)
