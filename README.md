@@ -25,7 +25,7 @@ Docker Desktop (https://docs.docker.com/desktop/install/windows-install/), WSL2 
 
 Гид по проекту:
 
-**app/yolo_pipeline/marked_mri_processing.py** - пайплайн. Берет из директории с исследованиями (обычно они обезличены и имеют только порядковый номер, например - 689),
+**app/yolo_pipeline/KL2_2.py** - пайплайн. Берет из директории с исследованиями (обычно они обезличены и имеют только порядковый номер, например - 689),
 DICOM и JSON файлы с T2 объемами и метками очагов соответственно, из "корень_проекта\database\marked_mri". 
 Отдает в "корень_проекта\database\processed_data" сохраняя номер исследования:
   - T2 DICOM, 
