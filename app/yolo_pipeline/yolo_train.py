@@ -25,9 +25,9 @@ def train():
     # Save the trained model
     model.save("trained_yolo.pt")
 
-#
-# if __name__ == '__main__':
-#     train()
+
+if __name__ == '__main__':
+    train()
 
 
 

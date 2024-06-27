@@ -221,7 +221,7 @@ def count(image_dir, mask_dir, csv_filename,docker_subject_id,path):
         csv_writer = csv.writer(csv_file, delimiter=',')
 
         if csv_file.tell() == 0:
-            csv_writer.writerow(['Study Number', 'Class', 'Colors and Pixel Counts'])
+            csv_writer.writerow(['Study Number', 'Class', 'Colors', 'Pixel Counts'])
 
         for (study_number, class_number), class_data in data_dict.items():
             if not class_data:
@@ -230,7 +230,10 @@ def count(image_dir, mask_dir, csv_filename,docker_subject_id,path):
             row = [study_number, class_number]
             for _, _, color, count, black_pixel_count in class_data:
                 color_name = labels_rgb_dict.get(color, 'Unknown Color')
-                row.append(f'{color_name}: {count*a[0]*a[1]}')
+                scaled_count = count * a[0] * a[1]
+                row.append(color_name)
+                row.append(scaled_count)
+
             csv_writer.writerow(row)
 
     for (study_number, class_number), class_data in data_dict.items():
@@ -239,7 +242,7 @@ def count(image_dir, mask_dir, csv_filename,docker_subject_id,path):
 
         for _, _, color, count, _ in class_data:
             color_name = labels_rgb_dict.get(color, 'Unknown Color')
-            print(f"Class {class_number}, Color {color_name}: {count} pixels")
-
+            scaled_count = count * a[0] * a[1]
+            print(f"Class {class_number}, Color {color_name}: {scaled_count} pixels")
 
 # count(r"E:\1\Segmentation\database\for_test\research_2505-007-SCREENING\WMPARC",r'E:\1\Segmentation\database\for_test\research_2505-007-SCREENING\MASK',r'E:\1\Segmentation\database\for_test\brain_volumes.csv')
