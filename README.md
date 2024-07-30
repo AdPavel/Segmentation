@@ -11,13 +11,18 @@
 Чтобы посмотреть снимки мы используем Slicer3D.
 
 Для обработки T1.mgz при помощи FastSurfer нужно: 
-Docker Desktop (https://docs.docker.com/desktop/install/windows-install/), WSL2 (https://learn.microsoft.com/en-us/windows/wsl/install), Windows 10 Pro 21H1 - с таким
-сетапом можно запускать версию для обработки на CPU (единовременно один контейнер - один объем в ~1ч10м при максимальной загрузке I7-11700F и ~20Гб оперативной памяти).
+Docker Desktop (https://docs.docker.com/desktop/install/windows-install/),
+
+WSL2 (https://learn.microsoft.com/en-us/windows/wsl/install),
+
+Windows 10 Pro 21H1 - с таким сетапом можно запускать версию для обработки на CPU (единовременно один контейнер - один объем в ~1ч10м при максимальной загрузке I7-11700F и ~20Гб оперативной памяти).
 
 Для большей производительности нужно установить и протестировать CUDA. Гайды по установке: 
 
 Общий гайд с гита фастсерфера - https://github.com/Deep-MI/FastSurfer/blob/dev/doc/overview/INSTALL.md#windows
+
 Гайд по установке CUDA на Windows - https://learn.microsoft.com/en-us/windows/ai/directml/gpu-cuda-in-wsl
+
 Гайд CUDA on WSL - https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl
 
 Скорость обработки одного файла при таком сетапе остается неизменной (1 файл в ~1ч10м), однако в несколько раз меньше грузится процессор, что позволяет запускать
